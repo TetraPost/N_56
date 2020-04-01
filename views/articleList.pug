@@ -1,0 +1,46 @@
+extends articleLayout
+
+block content
+  div.container
+  nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+    h4.white|Unit N_54
+    ul.navbar-nav.ml-auto
+      a.btn.btn-outline-info.pull-right(href="/") Form
+  .main.container
+    .row
+      .col-md-12.col-md-offset-3
+        h2.display-4.m-b-2 Articles
+        hr
+        div.btn-group
+          button.btn.btn-success.load Загрузить данные
+        hr
+        div.form-group
+          select.dataList.form-control
+        hr
+        div.content
+        br
+        p.span
+        p.userName
+        hr
+        <p>
+        a.btn.btnComment.btn-primary(data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample") Comments
+        
+        div.collapse#collapseExample
+          div.card.card-body
+            button.btn.btn-primary.disabled.BtnShowComments Show Comment
+            p.commentsList
+          form.save(method='POST' name='commentForm' enctype="multipart/form-data")
+            div.row
+              div.form-group.col-md-6
+                label| Comment
+                input#commentId.form-control(type='text', name='comment')
+                input#articleId.form-control(type='hidden', name='articleId')
+                span.commentId.error
+              div.form-group.col-md-6
+                label| Author
+                select.authorList.form-control
+                input#user.form-control(type='hidden', name='userId')
+                span.userId.error
+            div.form-group
+            button.btn.btn-primary.BtnSendComment.disabled(type='submit') Send Comment
+          hr
